@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwiftFix Home Repair — 24/7 Emergency Repair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16232F;
+    --paper:#ECE7DC;
+    --paper-2:#E2DCCC;
+    --orange:#E4571E;
+    --orange-dark:#C6440F;
+    --green:#2F7A5C;
+    --ink:#14202C;
+    --line:#C7C2B4;
+    --line-dark:#3A4A5A;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Public Sans',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    line-height:1.15;
+    letter-spacing:0.2px;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+
+  /* ---------- Sticky call bar ---------- */
+  .callbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--navy);
+    color:var(--paper);
+    padding:10px 16px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;
+    border-bottom:3px solid var(--orange);
+  }
+  .callbar .brand{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.2px;
+  }
+  .callbar .brand span{color:var(--orange);}
+  .callbar .call-btn{
+    background:var(--orange);
+    color:var(--white);
+    font-weight:600;
+    font-size:0.95rem;
+    padding:9px 16px;
+    border-radius:3px;
+    white-space:nowrap;
+    display:flex;align-items:center;gap:6px;
+  }
+  .callbar .call-btn:active{background:var(--orange-dark);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--paper);
+    padding:44px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-60px;top:-60px;
+    width:260px;height:260px;
+    border:2px solid var(--line-dark);
+    border-radius:50%;
+    opacity:0.5;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:20px;top:40px;
+    width:150px;height:150px;
+    border:2px solid var(--orange);
+    border-radius:50%;
+    opacity:0.35;
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .hero .eyebrow-badge{
+    display:inline-block;
+    background:rgba(228,87,30,0.15);
+    border:1px solid var(--orange);
+    color:#FF8B5C;
+    font-size:0.8rem;
+    font-weight:600;
+    padding:5px 12px;
+    border-radius:3px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:2.1rem;
+    max-width:11ch;
+    margin-bottom:14px;
+  }
+  .hero p.lede{
+    font-size:1.05rem;
+    max-width:42ch;
+    color:#C9D2D9;
+    margin-bottom:26px;
+  }
+  .hero-cta{
+    display:flex;flex-direction:column;gap:10px;
+    max-width:340px;
+  }
+  .btn-primary{
+    background:var(--orange);
+    color:var(--white);
+    font-family:'Oswald',sans-serif;
+    font-size:1.1rem;
+    font-weight:600;
+    padding:16px 20px;
+    border-radius:4px;
+    text-align:center;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    box-shadow:0 6px 0 var(--orange-dark);
+  }
+  .btn-primary:active{transform:translateY(3px);box-shadow:0 3px 0 var(--orange-dark);}
+  .hero-note{font-size:0.85rem;color:#8FA0AC;}
+
+  .hero-strip{
+    margin-top:32px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    border-top:1px solid var(--line-dark);
+    padding-top:20px;
+  }
+  .hero-strip .item{
+    display:flex;align-items:center;gap:10px;
+    font-size:0.88rem;
+    color:#C9D2D9;
+  }
+  .hero-strip .item svg{flex-shrink:0;width:18px;height:18px;color:var(--orange);}
+
+  /* ---------- Services ---------- */
+  .services{padding:48px 0 8px;}
+  .section-head{margin-bottom:26px;max-width:34ch;}
+  .section-head h2{font-size:1.5rem;margin-bottom:8px;}
+  .section-head p{color:#4A5A63;font-size:0.98rem;}
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper);
+    padding:20px 18px;
+    border-left:4px solid var(--orange);
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .service-card svg{width:26px;height:26px;color:var(--navy);flex-shrink:0;margin-top:2px;}
+  .service-card h3{font-size:1.02rem;font-weight:600;margin-bottom:4px;}
+  .service-card p{font-size:0.87rem;color:#52605F;}
+
+  /* ---------- Trust badges ---------- */
+  .trust{padding:44px 0;}
+  .trust-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .trust-item{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:18px 14px;
+    text-align:center;
+  }
+  .trust-item .num{
+    font-family:'Oswald',sans-serif;
+    font-size:1.5rem;
+    font-weight:600;
+    color:var(--navy);
+    display:block;
+  }
+  .trust-item .label{
+    font-size:0.78rem;
+    color:#5B6A68;
+    margin-top:3px;
+  }
+
+  /* ---------- Quote form ---------- */
+  .quote{
+    background:var(--navy);
+    color:var(--paper);
+    padding:44px 0;
+  }
+  .quote .section-head h2{color:var(--paper);}
+  .quote .section-head p{color:#9FB0B8;}
+  .quote-form{
+    background:var(--paper-2);
+    border-radius:4px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .field label{
+    display:block;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .field input, .field select{
+    width:100%;
+    padding:12px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    font-size:0.95rem;
+    background:var(--white);
+    font-family:inherit;
+  }
+  .field input:focus, .field select:focus{
+    outline:2px solid var(--orange);
+    outline-offset:1px;
+  }
+  .quote-form .btn-submit{
+    background:var(--orange);
+    color:var(--white);
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    padding:14px;
+    border-radius:3px;
+    margin-top:4px;
+  }
+  .form-msg{
+    font-size:0.85rem;
+    color:var(--green);
+    font-weight:600;
+    display:none;
+  }
+  .form-msg.show{display:block;}
+
+  /* ---------- Service area ---------- */
+  .area{padding:44px 0;}
+  .area-layout{display:flex;flex-direction:column;gap:22px;}
+  .area-map{
+    background:var(--white);
+    border:1px solid var(--line);
+    aspect-ratio:1/1;
+    max-width:320px;
+    margin:0 auto;
+    position:relative;
+  }
+  .zip-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .zip-chips span{
+    background:var(--white);
+    border:1px solid var(--line);
+    font-size:0.82rem;
+    padding:6px 12px;
+    border-radius:20px;
+    color:#3F4E4C;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{padding:44px 0 56px;}
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-q{
+    width:100%;
+    background:none;
+    text-align:left;
+    padding:16px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    font-family:'Oswald',sans-serif;
+    font-weight:500;
+    font-size:1rem;
+    color:var(--ink);
+  }
+  .faq-q .plus{
+    flex-shrink:0;
+    width:22px;height:22px;
+    position:relative;
+  }
+  .faq-q .plus::before, .faq-q .plus::after{
+    content:"";
+    position:absolute;
+    background:var(--orange);
+    transition:transform 0.2s ease;
+  }
+  .faq-q .plus::before{width:100%;height:2px;top:50%;left:0;transform:translateY(-50%);}
+  .faq-q .plus::after{width:2px;height:100%;left:50%;top:0;transform:translateX(-50%);}
+  .faq-item.open .plus::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.25s ease;
+    font-size:0.92rem;
+    color:#4C5A58;
+  }
+  .faq-a p{padding-bottom:16px;max-width:56ch;}
+  .faq-item.open .faq-a{max-height:200px;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding:36px 0 28px;
+    text-align:center;
+  }
+  footer .brand{
+    font-family:'Oswald',sans-serif;
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  footer .brand span{color:var(--orange);}
+  footer p{font-size:0.85rem;color:#9AA6A4;margin-bottom:20px;}
+  footer .btn-primary{max-width:280px;margin:0 auto 16px;box-shadow:none;}
+  footer .fine{font-size:0.75rem;color:#6B7674;}
+
+  /* ---------- Desktop ---------- */
+  @media (min-width:760px){
+    .hero{padding:64px 0 56px;}
+    .hero h1{font-size:2.9rem;max-width:14ch;}
+    .hero p.lede{font-size:1.15rem;}
+    .hero-strip{grid-template-columns:1fr 1fr 1fr;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .trust-grid{grid-template-columns:repeat(4,1fr);}
+    .quote-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+    .area-layout{flex-direction:row;align-items:center;}
+    .area-map{margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="callbar">
+  <div class="brand">Swift<span>Fix</span></div>
+  <a href="tel:+15552049911" class="call-btn">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call Now
+  </a>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow-badge">Open now · 24/7 dispatch</span>
+    <h1>Something broke? We're already on the way.</h1>
+    <p class="lede">Emergency plumbing, electrical, and storm-damage repair. One call gets a real technician to your door — not a call center.</p>
+    <div class="hero-cta">
+      <a href="tel:+15552049911" class="btn-primary">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (555) 204-9911
+      </a>
+      <span class="hero-note">Most calls answered in under 3 rings.</span>
+    </div>
+    <div class="hero-strip">
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5.25 3.75 9.75 9 11 5.25-1.25 9-5.75 9-11V7l-9-5z"/></svg>
+        Licensed &amp; insured technicians
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        45-minute average response
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Upfront pricing, no surprise fees
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What we fix, today</h2>
+      <p>If it's urgent and it's in your home, one of our technicians can handle it.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 12a5 5 0 0 1 5-5c1.5 0 2.4.6 3.5 1.7l4-4M17 12a5 5 0 0 1-5 5c-1.5 0-2.4-.6-3.5-1.7l-4 4"/></svg>
+        <div><h3>Plumbing emergencies</h3><p>Burst pipes, major leaks, water heater failure.</p></div>
+      </div>
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        <div><h3>Electrical failures</h3><p>Outages, sparking outlets, breaker panel issues.</p></div>
+      </div>
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10M12 21a4 4 0 0 0 4-4c0-2.5-4-8-4-8s-4 5.5-4 8a4 4 0 0 0 4 4z"/></svg>
+        <div><h3>Storm &amp; water damage</h3><p>Flooding, roof leaks, wind and impact repair.</p></div>
+      </div>
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <div><h3>Lockouts &amp; entry repair</h3><p>Broken door locks, jammed entries, forced-entry damage.</p></div>
+      </div>
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.5a3.5 3.5 0 1 1-4 0V4a2 2 0 0 1 4 0z"/></svg>
+        <div><h3>HVAC breakdowns</h3><p>No heat, no AC, or a unit that won't shut off.</p></div>
+      </div>
+      <div class="service-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <div><h3>General structural repair</h3><p>Fallen fencing, damaged siding, unsafe stairs or railings.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item"><span class="num">12yrs</span><span class="label">In business</span></div>
+      <div class="trust-item"><span class="num">500+</span><span class="label">Jobs completed</span></div>
+      <div class="trust-item"><span class="num">45min</span><span class="label">Avg. response</span></div>
+      <div class="trust-item"><span class="num">4.9</span><span class="label">Homeowner rating</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="wrap">
+    <div class="quote-inner">
+      <div class="section-head">
+        <h2>Prefer we call you?</h2>
+        <p>Leave your number and what's going on — a technician calls back within 15 minutes, day or night.</p>
+      </div>
+      <form class="quote-form" id="quoteForm">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" required placeholder="Jordan Lee">
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" required placeholder="(555) 000-0000">
+        </div>
+        <div class="field">
+          <label for="issue">What's the problem?</label>
+          <select id="issue">
+            <option>Plumbing emergency</option>
+            <option>Electrical failure</option>
+            <option>Storm / water damage</option>
+            <option>Lockout / entry repair</option>
+            <option>HVAC breakdown</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Request a callback</button>
+        <span class="form-msg" id="formMsg">Got it — a technician will call you shortly.</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="area">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where we cover</h2>
+      <p>Dispatched from central county — most calls reached within a 25-mile radius.</p>
+    </div>
+    <div class="area-layout">
+      <div class="area-map">
+        <svg viewBox="0 0 300 300" width="100%" height="100%">
+          <circle cx="150" cy="150" r="140" fill="none" stroke="#C7C2B4" stroke-width="1"/>
+          <circle cx="150" cy="150" r="95" fill="none" stroke="#C7C2B4" stroke-width="1"/>
+          <circle cx="150" cy="150" r="50" fill="none" stroke="#E4571E" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="150" cy="150" r="6" fill="#16232F"/>
+          <text x="150" y="175" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="11" fill="#52605F">Dispatch HQ</text>
+        </svg>
+      </div>
+      <div class="zip-chips">
+        <span>Riverside</span><span>Northgate</span><span>Millbrook</span>
+        <span>Fairview Heights</span><span>Elm Corner</span><span>Southport</span>
+        <span>Cedar Hollow</span><span>Old Town</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Common questions</h2>
+    </div>
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q"><span>How fast can you actually get here?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>45 minutes on average within our core coverage area. Dispatch confirms an estimated arrival time on the call before anyone drives out.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you charge more for nights or weekends?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>No after-hours markup. The quote you're given on the phone is the price you pay, regardless of when we show up.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>What if the repair takes longer than expected?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>You're told the revised scope and cost before any additional work starts — nothing gets added to the bill without your OK.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Is the repair guaranteed?</span><span class="plus"></span></button>
+        <div class="faq-a"><p>Every job comes with a 90-day workmanship guarantee. If the same issue returns, we come back at no charge.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Swift<span>Fix</span> Home Repair</div>
+    <p>Available 24/7, 365 days a year.</p>
+    <a href="tel:+15552049911" class="btn-primary">Call (555) 204-9911</a>
+    <div class="fine">Licensed &amp; insured · Serving the greater metro area</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    this.querySelector('.btn-submit').textContent = 'Request sent';
+  });
+</script>
+
+</body>
+</html>
