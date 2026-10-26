@@ -90,24 +90,6 @@
     position:relative;
     overflow:hidden;
   }
-  .hero::before{
-    content:"";
-    position:absolute;
-    right:-60px;top:-60px;
-    width:260px;height:260px;
-    border:2px solid var(--line-dark);
-    border-radius:50%;
-    opacity:0.5;
-  }
-  .hero::after{
-    content:"";
-    position:absolute;
-    right:20px;top:40px;
-    width:150px;height:150px;
-    border:2px solid var(--orange);
-    border-radius:50%;
-    opacity:0.35;
-  }
   .hero .wrap{position:relative;z-index:2;}
   .hero .eyebrow-badge{
     display:inline-block;
@@ -148,7 +130,6 @@
     box-shadow:0 6px 0 var(--orange-dark);
   }
   .btn-primary:active{transform:translateY(3px);box-shadow:0 3px 0 var(--orange-dark);}
-  .hero-note{font-size:0.85rem;color:#8FA0AC;}
 
   .hero-strip{
     margin-top:32px;
@@ -210,18 +191,6 @@
     color:var(--navy);
     display:block;
     letter-spacing:0.2px;
-  }
-  .trust-item .num{
-    font-family:'Oswald',sans-serif;
-    font-size:1.5rem;
-    font-weight:600;
-    color:var(--navy);
-    display:block;
-  }
-  .trust-item .label{
-    font-size:0.78rem;
-    color:#5B6A68;
-    margin-top:3px;
   }
 
   /* ---------- Quote form ---------- */
@@ -358,7 +327,7 @@
   footer .brand span{color:var(--orange);}
   footer p{font-size:0.85rem;color:#9AA6A4;margin-bottom:20px;}
   footer .btn-primary{max-width:280px;margin:0 auto 16px;box-shadow:none;}
-  footer .fine{font-size:0.75rem;color:#6B7674;}
+  footer .fine{font-size:0.75rem;color:#9AA6A4;}
 
   /* ---------- Desktop ---------- */
   @media (min-width:760px){
@@ -452,9 +421,9 @@
 <section class="trust">
   <div class="wrap">
     <div class="trust-grid">
-      <div class="trust-item"><span class="feature">Call button always visible</span></div>
-      <div class="trust-item"><span class="feature">Short callback form</span></div>
-      <div class="trust-item"><span class="feature">Mobile-friendly layout</span></div>
+      <div class="trust-item"><span class="feature">Call or request a callback</span></div>
+      <div class="trust-item"><span class="feature">Clear list of services</span></div>
+      <div class="trust-item"><span class="feature">Service area details</span></div>
     </div>
   </div>
 </section>
@@ -487,7 +456,7 @@
           </select>
         </div>
         <button type="submit" class="btn-submit">Request a callback</button>
-        <span class="form-msg" id="formMsg">Thanks, your request has been received. (demo form)</span>
+        <span class="form-msg" id="formMsg" role="status">Thanks, your request has been received. (demo form)</span>
       </form>
     </div>
   </div>
