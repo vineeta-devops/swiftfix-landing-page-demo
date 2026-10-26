@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SwiftFix Home Repair — 24/7 Emergency Repair</title>
+<meta name="description" content="Demo landing page for a fictional home-repair business: call-first layout, callback form and mobile-friendly design.">
+<title>SwiftFix Home Repair | Landing Page Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,6 +40,18 @@
   img,svg{display:block;max-width:100%;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
   button{font-family:inherit;cursor:pointer;border:none;}
+
+  /* ---------- Demo notice bar ---------- */
+  .demo-notice{
+    background:var(--paper-2);
+    color:#52605F;
+    font-size:0.8rem;
+    line-height:1.4;
+    text-align:center;
+    padding:7px 16px;
+    border-bottom:1px solid var(--line);
+    font-weight:500;
+  }
 
   /* ---------- Sticky call bar ---------- */
   .callbar{
@@ -177,11 +190,11 @@
   .service-card h3{font-size:1.02rem;font-weight:600;margin-bottom:4px;}
   .service-card p{font-size:0.87rem;color:#52605F;}
 
-  /* ---------- Trust badges ---------- */
+  /* ---------- Trust badges / Features ---------- */
   .trust{padding:44px 0;}
   .trust-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr;
     gap:14px;
   }
   .trust-item{
@@ -189,6 +202,14 @@
     border:1px solid var(--line);
     padding:18px 14px;
     text-align:center;
+  }
+  .trust-item .feature{
+    font-family:'Oswald',sans-serif;
+    font-size:1.15rem;
+    font-weight:600;
+    color:var(--navy);
+    display:block;
+    letter-spacing:0.2px;
   }
   .trust-item .num{
     font-family:'Oswald',sans-serif;
@@ -346,7 +367,7 @@
     .hero p.lede{font-size:1.15rem;}
     .hero-strip{grid-template-columns:1fr 1fr 1fr;}
     .service-grid{grid-template-columns:1fr 1fr;}
-    .trust-grid{grid-template-columns:repeat(4,1fr);}
+    .trust-grid{grid-template-columns:repeat(3,1fr);}
     .quote-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
     .area-layout{flex-direction:row;align-items:center;}
     .area-map{margin:0;}
@@ -354,6 +375,8 @@
 </style>
 </head>
 <body>
+
+<div class="demo-notice">Demo project: fictional business created for portfolio purposes. All details are sample content.</div>
 
 <div class="callbar">
   <div class="brand">Swift<span>Fix</span></div>
@@ -365,28 +388,27 @@
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow-badge">Open now · 24/7 dispatch</span>
-    <h1>Something broke? We're already on the way.</h1>
-    <p class="lede">Emergency plumbing, electrical, and storm-damage repair. One call gets a real technician to your door — not a call center.</p>
+    <span class="eyebrow-badge">Emergency repair, sample demo</span>
+    <h1>Something broke? Get help fast.</h1>
+    <p class="lede">Emergency plumbing, electrical, and storm-damage repair. Call or request a callback and tell us what needs fixing.</p>
     <div class="hero-cta">
       <a href="tel:+15552049911" class="btn-primary">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        (555) 204-9911
+        (555) 204-9911 (sample number)
       </a>
-      <span class="hero-note">Most calls answered in under 3 rings.</span>
     </div>
     <div class="hero-strip">
       <div class="item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v6c0 5.25 3.75 9.75 9 11 5.25-1.25 9-5.75 9-11V7l-9-5z"/></svg>
-        Licensed &amp; insured technicians
+        Clear communication
       </div>
       <div class="item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        45-minute average response
+        Fast callback request
       </div>
       <div class="item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Upfront pricing, no surprise fees
+        Simple, upfront quotes (sample text)
       </div>
     </div>
   </div>
@@ -395,8 +417,8 @@
 <section class="services">
   <div class="wrap">
     <div class="section-head">
-      <h2>What we fix, today</h2>
-      <p>If it's urgent and it's in your home, one of our technicians can handle it.</p>
+      <h2>What we fix</h2>
+      <p>Tell us what's wrong and we'll guide you on the next step.</p>
     </div>
     <div class="service-grid">
       <div class="service-card">
@@ -430,10 +452,9 @@
 <section class="trust">
   <div class="wrap">
     <div class="trust-grid">
-      <div class="trust-item"><span class="num">12yrs</span><span class="label">In business</span></div>
-      <div class="trust-item"><span class="num">500+</span><span class="label">Jobs completed</span></div>
-      <div class="trust-item"><span class="num">45min</span><span class="label">Avg. response</span></div>
-      <div class="trust-item"><span class="num">4.9</span><span class="label">Homeowner rating</span></div>
+      <div class="trust-item"><span class="feature">Call button always visible</span></div>
+      <div class="trust-item"><span class="feature">Short callback form</span></div>
+      <div class="trust-item"><span class="feature">Mobile-friendly layout</span></div>
     </div>
   </div>
 </section>
@@ -443,7 +464,7 @@
     <div class="quote-inner">
       <div class="section-head">
         <h2>Prefer we call you?</h2>
-        <p>Leave your number and what's going on — a technician calls back within 15 minutes, day or night.</p>
+        <p>Leave your number and what's going on — we'll call you back. (sample demo)</p>
       </div>
       <form class="quote-form" id="quoteForm">
         <div class="field">
@@ -466,7 +487,7 @@
           </select>
         </div>
         <button type="submit" class="btn-submit">Request a callback</button>
-        <span class="form-msg" id="formMsg">Got it — a technician will call you shortly.</span>
+        <span class="form-msg" id="formMsg">Thanks, your request has been received. (demo form)</span>
       </form>
     </div>
   </div>
@@ -476,7 +497,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Where we cover</h2>
-      <p>Dispatched from central county — most calls reached within a 25-mile radius.</p>
+      <p>Sample service area. Replace with the business's real areas.</p>
     </div>
     <div class="area-layout">
       <div class="area-map">
@@ -505,19 +526,19 @@
     <div id="faqList">
       <div class="faq-item">
         <button class="faq-q"><span>How fast can you actually get here?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>45 minutes on average within our core coverage area. Dispatch confirms an estimated arrival time on the call before anyone drives out.</p></div>
+        <div class="faq-a"><p>Arrival times depend on location and demand. We confirm an estimated time when you call.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Do you charge more for nights or weekends?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>No after-hours markup. The quote you're given on the phone is the price you pay, regardless of when we show up.</p></div>
+        <div class="faq-a"><p>Pricing details are confirmed on the phone before work starts.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>What if the repair takes longer than expected?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>You're told the revised scope and cost before any additional work starts — nothing gets added to the bill without your OK.</p></div>
+        <div class="faq-a"><p>You're told about any change in scope or cost before extra work begins.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Is the repair guaranteed?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Every job comes with a 90-day workmanship guarantee. If the same issue returns, we come back at no charge.</p></div>
+        <div class="faq-a"><p>Guarantee terms would be set by the business. (Sample content.)</p></div>
       </div>
     </div>
   </div>
@@ -526,9 +547,9 @@
 <footer>
   <div class="wrap">
     <div class="brand">Swift<span>Fix</span> Home Repair</div>
-    <p>Available 24/7, 365 days a year.</p>
+    <p>Sample availability text.</p>
     <a href="tel:+15552049911" class="btn-primary">Call (555) 204-9911</a>
-    <div class="fine">Licensed &amp; insured · Serving the greater metro area</div>
+    <div class="fine">Demo project · Fictional business</div>
   </div>
 </footer>
 
